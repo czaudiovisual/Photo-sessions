@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from "react"
 
 function BookingForm() {
     const [style, setStyle] = useState('')
@@ -8,8 +8,23 @@ function BookingForm() {
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
 
-    const handleOnSubmit = (event) => {
+    function handleOnSubmit(event) {
         event.preventDefault()
+        fetch("/bookings", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                style,
+                img_url,
+                time,
+                date,
+                location,
+                description,
+                // user_id: user.id
+            }), 
+        }).then(res => res.json())
     }
 
     return (
@@ -27,8 +42,8 @@ function BookingForm() {
                     value={img_url}
                     placeholder="Img Url"
                     type="text"
-                    id="img-url"
-                    name="img-url" />
+                    id="img_url"
+                    name="img_url" />
                 <input
                     onChange={(event) => setTime(event.target.value)}
                     value={time}
@@ -51,13 +66,13 @@ function BookingForm() {
                     id="location"
                     name="location" />
                 <input
-                    onChange={(event) => setImgUrl(event.target.value)}
+                    onChange={(event) => setDescription(event.target.value)}
                     value={description}
                     placeholder="Description"
                     type="text"
                     id="description"
                     name="description" />
-            <button type="submit">Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )

@@ -1,29 +1,28 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { useEffect, useState} from 'react'
 import Bookings from './Bookings'
 import BookingForm from './BookingForm'
+import LoginForm from './LoginForm'
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null)
 
   //MVP
   //navbar
-  //home
   //add
   //logout
 
-  //booking container
-  //booking card
+
   //card
   //delete button
   //edit button
-
-  //booking form
 
   //booking edit form
 
   //sign in form
   //sign up form
-
+  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser}/>
 
   return (
     <div className="App">
