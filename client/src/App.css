@@ -23,9 +23,9 @@ body {
   float: left;
 }
 
-.image-url-size {
-  width:  100%;
-  height: 200px;
+.image-size {
+  width:  50%;
+  height: 100px;
   margin-bottom: 1px;
   object-fit: cover;
 }
@@ -37,7 +37,7 @@ body {
 }
 
 .body-book {
-  /* background: #76b852; */
+  background: #76b852;
   background: radial-gradient(circle, rgb(67, 113, 151), white);
   display: flex;
   min-height: 100vh;
