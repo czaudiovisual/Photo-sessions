@@ -25,24 +25,31 @@ function App() {
 
   //sign in form
   //sign up form
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then(res => {
+      setCurrentUser(null)
+    })
+  }
 
-
-  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser}/>
+  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser} />
 
   return (
     <div className="App">
-      <NavigBar NavigBar={NavigBar}/>
+      <nav>
+        <NavigBar />
+        <span>Logged in as {currentUser.username} <button onClick={handleLogoutClick}>Logout</button></span>
+      </nav>
       <div>
-      <Router>
-        <Switch>
-          <Route exact path="/bookings" component={Bookings}>
-            <Bookings/>
-          </Route>
-          <Route exact path="/bookings/new" component={BookingForm}>
-            <BookingForm/>
-          </Route>
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route exact path="/bookings" component={Bookings}>
+              <Bookings />
+            </Route>
+            <Route exact path="/bookings/new" component={BookingForm}>
+              <BookingForm />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     </div>
   );

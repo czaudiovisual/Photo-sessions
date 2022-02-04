@@ -3,11 +3,7 @@ import { Nav, Navbar, Container } from 'react-bootstrap'
 
 function NavigBar({ setCurrentUser }) {
 
-    function handleLogoutClick() {
-        fetch("/logout", {method: "DELETE"}).then(res => {
-            setCurrentUser(null)
-        })
-    }
+    
 
     return (
         <div className="nav-links">
@@ -20,7 +16,6 @@ function NavigBar({ setCurrentUser }) {
                     </Nav>
                 </Container>
             </Navbar>
-            <button onClick={handleLogoutClick}>Logout</button>
         </div>
     )
 }
