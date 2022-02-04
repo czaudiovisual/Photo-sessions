@@ -1,12 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { useEffect, useState} from 'react'
+import { useState } from 'react'
 import Bookings from './Bookings'
 import BookingForm from './BookingForm'
 import LoginForm from './LoginForm'
+import NavigBar from './NavigBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+
 
   //MVP
   //navbar
@@ -22,10 +25,14 @@ function App() {
 
   //sign in form
   //sign up form
+
+
   if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser}/>
 
   return (
     <div className="App">
+      <NavigBar NavigBar={NavigBar}/>
+      <div>
       <Router>
         <Switch>
           <Route exact path="/bookings" component={Bookings}>
@@ -36,7 +43,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
+      </div>
     </div>
   );
 }

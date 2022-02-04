@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function LoginForm(setCurrentUser) {
+function LoginForm({setCurrentUser}) {
     const [username, setUsername] = useState("")
 
     function handleOnSubmit(event) {
@@ -11,9 +11,11 @@ function LoginForm(setCurrentUser) {
                 "content-type": "application/json",
             },
             body: JSON.stringify({ username }),
-        }).then(res => {
+        }).then((res) => {
             console.log(res)
-            res.json().then(currentUser => setCurrentUser(currentUser))
+            res.json().then(currentUser => {
+                setCurrentUser(currentUser)
+            })
         })
     }
 
@@ -27,7 +29,6 @@ function LoginForm(setCurrentUser) {
                     type="text"
                     id="username"
                     name="username" />
-                    <button type="submit">Login</button>
             </form>
         </div>
     )
