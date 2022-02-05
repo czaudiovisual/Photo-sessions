@@ -1,15 +1,23 @@
 import React, { useState } from "react"
+// import { useHistory } from "react-router"
 
-function BookingForm() {
-    const [style, setStyle] = useState('')
-    const [img_url, setImgUrl] = useState('')
-    const [time, setTime] = useState('')
-    const [date, setDate] = useState('')
-    const [location, setLocation] = useState('')
-    const [description, setDescription] = useState('')
+function BookingForm({currentUser, addBooking}) {
+    const [style, setStyle] = useState("")
+    const [img_url, setImgUrl] = useState("")
+    const [time, setTime] = useState("")
+    const [date, setDate] = useState("")
+    const [location, setLocation] = useState("")
+    const [description, setDescription] = useState("")
+    // const history = useState()
 
     function handleOnSubmit(event) {
         event.preventDefault()
+            setStyle("")
+            setImgUrl("")
+            setTime("")
+            setDate("")
+            setLocation("")
+            setDescription("")
         fetch("/bookings", {
             method: "POST",
             headers: {
@@ -22,9 +30,12 @@ function BookingForm() {
                 date,
                 location,
                 description,
-                // user_id: user.id
-            }), 
-        }).then(res => res.json())
+                // user_id: currentUser.id
+            }),
+        })
+        .then(res => res.json())
+        .then(book => addBooking(book))
+        // .then((history.push("/bookings")))
     }
 
     return (

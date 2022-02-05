@@ -8,31 +8,26 @@ import SignupForm from './SignupForm'
 import NavigBar from './NavigBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+function App({ addBooking }) {
   const [currentUser, setCurrentUser] = useState(null)
 
 
   //MVP
-  //navbar
-  //add
-  //logout
-
-
   //card
   //delete button
   //edit button
 
   //booking edit form
 
-  //sign in form
-  //sign up form
+
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then(res => {
       setCurrentUser(null)
     })
   }
 
-  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser} /> 
+  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser} />
 
   return (
     <div className="App">
@@ -47,7 +42,7 @@ function App() {
               <Bookings />
             </Route>
             <Route exact path="/bookings/new" component={BookingForm}>
-              <BookingForm />
+              <BookingForm currentUser={currentUser} addBooking={addBooking} />
             </Route>
           </Switch>
         </Router>
