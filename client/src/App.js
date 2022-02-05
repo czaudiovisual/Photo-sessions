@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Bookings from './Bookings'
 import BookingForm from './BookingForm'
 import LoginForm from './LoginForm'
+import SignupForm from './SignupForm'
 import NavigBar from './NavigBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,7 +32,7 @@ function App() {
     })
   }
 
-  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser} />
+  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser} /> 
 
   return (
     <div className="App">

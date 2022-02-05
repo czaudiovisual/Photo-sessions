@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import SignupForm from "./SignupForm"
 
-function LoginForm({setCurrentUser}) {
+function LoginForm({ setCurrentUser }) {
     const [username, setUsername] = useState("")
 
     function handleOnSubmit(event) {
@@ -21,6 +22,7 @@ function LoginForm({setCurrentUser}) {
 
     return (
         <div>
+            <h2>Login</h2>
             <form onSubmit={handleOnSubmit}>
                 <input
                     onChange={(event) => setUsername(event.target.value)}
@@ -29,7 +31,12 @@ function LoginForm({setCurrentUser}) {
                     type="text"
                     id="username"
                     name="username" />
+                <button type="submit">Login</button>
             </form>
+            <br />
+            <br />
+            <h4>Create an account</h4>
+            <SignupForm setCurrentUser={setCurrentUser}/>
         </div>
     )
 }
