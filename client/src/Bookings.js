@@ -1,6 +1,6 @@
-import BookingForm from './BookingForm';
 import React, { useEffect, useState } from "react"
 import BookingCard from './BookingCard'
+import BookingForm from './BookingForm';
 
 function Bookings({ currentUser }) {
     const [bookings, setBookings] = useState([])
@@ -22,14 +22,10 @@ function Bookings({ currentUser }) {
     return (
         <div>
             <h1>Bookings</h1>
-            {bookings.map(book => <BookingCard
-                booking={book}
-                key={book.id}
-                removeBooking={removeBooking} />
-            )}
+            {bookings.map(book => <BookingCard currentUser={currentUser} booking={book} key={book.id} removeBooking={removeBooking} />)}
             <BookingForm currentUser={currentUser} addBooking={addBooking} />
         </div>
     )
 }
 
-export default Bookings;
+export default Bookings

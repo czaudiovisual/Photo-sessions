@@ -1,14 +1,13 @@
 import React, { useState } from "react"
-// import { useHistory } from "react-router"
 
-function BookingForm({currentUser, addBooking}) {
-    const [style, setStyle] = useState("")
-    const [img_url, setImgUrl] = useState("")
-    const [time, setTime] = useState("")
-    const [date, setDate] = useState("")
-    const [location, setLocation] = useState("")
-    const [description, setDescription] = useState("")
-    // const history = useState()
+function EditBooking({booking, currentUser}) {
+    const [style, setStyle] = useState(booking.style)
+    const [img_url, setImgUrl] = useState(booking.img_url)
+    const [time, setTime] = useState(booking.time)
+    const [date, setDate] = useState(booking.date)
+    const [location, setLocation] = useState(booking.location)
+    const [description, setDescription] = useState(booking.description)
+
 
     function handleOnSubmit(event) {
         event.preventDefault()
@@ -19,7 +18,7 @@ function BookingForm({currentUser, addBooking}) {
             setLocation("")
             setDescription("")
         fetch("/bookings", {
-            method: "POST",
+            method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -30,12 +29,10 @@ function BookingForm({currentUser, addBooking}) {
                 date,
                 location,
                 description,
-                user_id: currentUser.id
+                // user_id: currentUser.id
             }),
         })
         .then(res => res.json())
-        .then(book => addBooking(book))
-        // .then((history.push("/bookings")))
     }
 
     return (
@@ -89,4 +86,4 @@ function BookingForm({currentUser, addBooking}) {
     )
 }
 
-export default BookingForm
+export default EditBooking

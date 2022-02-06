@@ -2,9 +2,9 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useState } from 'react'
 import Bookings from './Bookings'
-import BookingForm from './BookingForm'
+// import BookingForm from './BookingForm'
 import LoginForm from './LoginForm'
-import SignupForm from './SignupForm'
+// import SignupForm from './SignupForm'
 import NavigBar from './NavigBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,11 +39,11 @@ function App({ addBooking }) {
         <Router>
           <Switch>
             <Route exact path="/bookings" component={Bookings}>
-              <Bookings />
+              <Bookings currentUser={currentUser}/>
             </Route>
-            <Route exact path="/bookings/new" component={BookingForm}>
+            {/* <Route exact path="/bookings/new" component={BookingForm}>
               <BookingForm currentUser={currentUser} addBooking={addBooking} />
-            </Route>
+            </Route> */}
           </Switch>
         </Router>
       </div>

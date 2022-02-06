@@ -1,9 +1,8 @@
-# Project Template: React/Rails API
+# Project Template: Booking a Photo Session
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Heroku.
+Book a photo session is a simple app that allows you to book a photo session with the style that you want.
 
 ## Requirements
 

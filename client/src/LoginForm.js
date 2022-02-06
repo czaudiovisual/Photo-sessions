@@ -21,7 +21,7 @@ function LoginForm({ setCurrentUser }) {
     }
 
     return (
-        <div>
+        <div className="App">
             <h2>Login</h2>
             <form onSubmit={handleOnSubmit}>
                 <input

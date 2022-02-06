@@ -1,6 +1,6 @@
 
 
-function BookingCard({ booking, removeBooking}) {
+function BookingCard({ booking, removeBooking }) {
 
     function handleDeleteBooking(booking) {
         fetch(`/bookings/${booking.id}`, {
