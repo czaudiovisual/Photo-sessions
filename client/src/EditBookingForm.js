@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function EditBooking({booking, currentUser}) {
+function EditBooking({ currentUser, booking, editBooking, handleEditBooking }) {
     const [style, setStyle] = useState(booking.style)
     const [img_url, setImgUrl] = useState(booking.img_url)
     const [time, setTime] = useState(booking.time)
@@ -8,16 +8,15 @@ function EditBooking({booking, currentUser}) {
     const [location, setLocation] = useState(booking.location)
     const [description, setDescription] = useState(booking.description)
 
-
     function handleOnSubmit(event) {
         event.preventDefault()
-            setStyle("")
-            setImgUrl("")
-            setTime("")
-            setDate("")
-            setLocation("")
-            setDescription("")
-        fetch("/bookings", {
+        setStyle("")
+        setImgUrl("")
+        setTime("")
+        setDate("")
+        setLocation("")
+        setDescription("")
+        fetch(`/bookings/${booking.id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',
@@ -29,15 +28,20 @@ function EditBooking({booking, currentUser}) {
                 date,
                 location,
                 description,
-                // user_id: currentUser.id
+                user_id: currentUser.id
             }),
         })
-        .then(res => res.json())
+            .then( res => res.json())
+            .then(book => {
+                editBooking(book)
+                handleEditBooking(book)
+            })
     }
 
     return (
         <div>
             <form onSubmit={handleOnSubmit}>
+                <p>Edit your booking</p>
                 <input
                     onChange={(event) => setStyle(event.target.value)}
                     value={style}

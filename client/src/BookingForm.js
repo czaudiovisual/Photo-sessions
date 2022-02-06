@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-// import { useHistory } from "react-router"
 
 function BookingForm({currentUser, addBooking}) {
     const [style, setStyle] = useState("")
@@ -8,7 +7,6 @@ function BookingForm({currentUser, addBooking}) {
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
     const [description, setDescription] = useState("")
-    // const history = useState()
 
     function handleOnSubmit(event) {
         event.preventDefault()
@@ -35,7 +33,6 @@ function BookingForm({currentUser, addBooking}) {
         })
         .then(res => res.json())
         .then(book => addBooking(book))
-        // .then((history.push("/bookings")))
     }
 
     return (

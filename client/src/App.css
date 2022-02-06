@@ -14,7 +14,6 @@ body {
   margin-bottom: 20px;
   box-shadow: 0 0px 20px 0 rgba(0,0,0,0.2);
   display: flex;
-  justify-content: space-evenly;
   transition: 0.3s;
   flex-direction: row;
   justify-content: center;
@@ -23,9 +22,9 @@ body {
   float: left;
 }
 
-.image-size {
+.img-size {
   width:  50%;
-  height: 100px;
+  height: 500px;
   margin-bottom: 1px;
   object-fit: cover;
 }
@@ -43,4 +42,12 @@ body {
   min-height: 100vh;
   justify-content: center;
   align-items: baseline;
+}
+
+.form-container {
+  width:400px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding: 10px;
 }

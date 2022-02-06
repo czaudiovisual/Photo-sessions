@@ -36,7 +36,7 @@ function LoginForm({ setCurrentUser }) {
             <br />
             <br />
             <h4>Create an account</h4>
-            <SignupForm setCurrentUser={setCurrentUser}/>
+            <SignupForm setCurrentUser={setCurrentUser} />
         </div>
     )
 }
