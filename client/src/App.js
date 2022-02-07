@@ -2,14 +2,14 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Bookings from './Bookings'
-import EditForm from './EditForm'
+// import EditForm from './EditForm'
 import LoginForm from './LoginForm'
 import NavigBar from './NavigBar';
 import BookingForm from './BookingForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function App(handleEditButtonClick, editBooking, booking) {
+function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [bookings, setBookings] = useState([])
 
@@ -22,6 +22,7 @@ function App(handleEditButtonClick, editBooking, booking) {
       }
     })
   }, [])
+
 
   function addBooking(booking) {
     setBookings([...bookings, booking])
@@ -48,10 +49,7 @@ function App(handleEditButtonClick, editBooking, booking) {
               <Bookings currentUser={currentUser} />
             </Route>
             <Route exact path="/bookings/new" >
-              <BookingForm currentUser={currentUser} addBooking={addBooking} />
-            </Route>
-            <Route exact path="/bookings/:id/edit" component={BookingForm}>
-              <EditForm handleEditButtonClick={handleEditButtonClick} editBooking={editBooking} booking={booking} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+              <BookingForm key={bookings.id} currentUser={currentUser} addBooking={addBooking} />
             </Route>
           </Switch>
         </Router>

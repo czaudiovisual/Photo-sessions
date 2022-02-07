@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button } from "react-bootstrap"
+import { Alert, Button } from "react-bootstrap"
 
 
 function BookingForm({ currentUser, addBooking }) {
@@ -9,6 +9,7 @@ function BookingForm({ currentUser, addBooking }) {
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
     const [description, setDescription] = useState("")
+    const [errors, setErrors] = useState("")
 
     function handleOnSubmit(event) {
         event.preventDefault()
@@ -32,9 +33,23 @@ function BookingForm({ currentUser, addBooking }) {
                 description,
                 user_id: currentUser.id
             }),
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then(book => addBooking(book))
+            } else {
+                response.json().then(errors => {
+                    setErrors(errors.errors)
+                })
+            }
         })
-            .then(res => res.json())
-            .then(book => addBooking(book))
+        // .then(res => res.json())
+        // .then(book => addBooking(book))
+    }
+
+    const displayError = () => {
+        return errors.map(error => {
+            return <div className="alert alert-danger" role="alert">{error}</div>
+        })
     }
 
     return (
@@ -42,6 +57,9 @@ function BookingForm({ currentUser, addBooking }) {
             <div className="form-outsider">
                 <div className="form-container">
                     <form className="register-form" onSubmit={handleOnSubmit}>
+                        {errors ?
+                            <Alert variant="danger">{errors && displayError()}</Alert> : <Alert variant="danger="></Alert>
+                        }
                         <h5>Book you photo session</h5>
                         <input
                             onChange={(event) => setStyle(event.target.value)}
@@ -91,7 +109,7 @@ function BookingForm({ currentUser, addBooking }) {
                             type="text"
                             id="description"
                             name="description" />
-                        <Button variant="success" type="submit">Submit</Button>{' '}
+                        <Button variant="success" type="submit">Add Booking</Button>
                     </form>
                 </div>
             </div>

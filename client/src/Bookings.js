@@ -8,7 +8,7 @@ function Bookings({ currentUser }) {
         setBookings((bookings) => bookings.filter(book => book.id !== booking.id))
     }
 
-    function editBooking(booking){
+    function editBooking(booking) {
         const edited = bookings.map(book => {
             if (booking.id === book.id) {
                 return booking
