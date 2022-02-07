@@ -17,10 +17,9 @@ class BookingsController < ApplicationController
     end
 
     def update
-        booking = find_booking
-        booking = Booking.update(booking_params)
+        booking = Booking.find(params[:id])
+        booking.update(booking_params)
         render json: booking, status: :ok
-        
     end
 
     def destroy

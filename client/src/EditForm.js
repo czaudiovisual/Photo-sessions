@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import { Button } from "react-bootstrap"
 
-function EditBooking({ currentUser, booking, editBooking, handleEditBooking }) {
+function EditForm({ currentUser, booking, editBooking, handleEditButtonClick }) {
     const [style, setStyle] = useState(booking.style)
     const [img_url, setImgUrl] = useState(booking.img_url)
     const [time, setTime] = useState(booking.time)
@@ -31,19 +32,21 @@ function EditBooking({ currentUser, booking, editBooking, handleEditBooking }) {
                 user_id: currentUser.id
             }),
         })
-            .then( res => res.json())
-            .then(book => {
-                editBooking(book)
-                handleEditBooking(book)
+            .then(res => res.json())
+            .then(b => {
+                editBooking(b)
+                handleEditButtonClick()
             })
     }
 
     return (
         <div>
             <form onSubmit={handleOnSubmit}>
-                <p>Edit your booking</p>
+                <br />
+                <h5>Edit your booking</h5>
                 <input
                     onChange={(event) => setStyle(event.target.value)}
+                    className="form-field"
                     value={style}
                     placeholder="Style"
                     type="text"
@@ -51,6 +54,7 @@ function EditBooking({ currentUser, booking, editBooking, handleEditBooking }) {
                     name="style" />
                 <input
                     onChange={(event) => setImgUrl(event.target.value)}
+                    className="form-field"
                     value={img_url}
                     placeholder="Img Url"
                     type="text"
@@ -58,6 +62,7 @@ function EditBooking({ currentUser, booking, editBooking, handleEditBooking }) {
                     name="img_url" />
                 <input
                     onChange={(event) => setTime(event.target.value)}
+                    className="form-field"
                     value={time}
                     placeholder="Time"
                     type="text"
@@ -65,6 +70,7 @@ function EditBooking({ currentUser, booking, editBooking, handleEditBooking }) {
                     name="time" />
                 <input
                     onChange={(event) => setDate(event.target.value)}
+                    className="form-field"
                     value={date}
                     placeholder="Date"
                     type="text"
@@ -72,22 +78,26 @@ function EditBooking({ currentUser, booking, editBooking, handleEditBooking }) {
                     name="date" />
                 <input
                     onChange={(event) => setLocation(event.target.value)}
+                    className="form-field"
                     value={location}
                     placeholder="Location"
                     type="text"
                     id="location"
                     name="location" />
-                <input
+                <textarea
                     onChange={(event) => setDescription(event.target.value)}
+                    className="form-field"
                     value={description}
                     placeholder="Description"
                     type="text"
                     id="description"
                     name="description" />
-                <button type="submit">Submit</button>
+                     <br />
+            <Button variant="success" size="sm" type="submit">Edit</Button>
             </form>
+           
         </div>
     )
 }
 
-export default EditBooking
+export default EditForm

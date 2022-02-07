@@ -1,6 +1,8 @@
 import React, { useState } from "react"
+import { Button } from "react-bootstrap"
 
-function BookingForm({currentUser, addBooking}) {
+
+function BookingForm({ currentUser, addBooking }) {
     const [style, setStyle] = useState("")
     const [img_url, setImgUrl] = useState("")
     const [time, setTime] = useState("")
@@ -10,12 +12,12 @@ function BookingForm({currentUser, addBooking}) {
 
     function handleOnSubmit(event) {
         event.preventDefault()
-            setStyle("")
-            setImgUrl("")
-            setTime("")
-            setDate("")
-            setLocation("")
-            setDescription("")
+        setStyle("")
+        setImgUrl("")
+        setTime("")
+        setDate("")
+        setLocation("")
+        setDescription("")
         fetch("/bookings", {
             method: "POST",
             headers: {
@@ -31,57 +33,68 @@ function BookingForm({currentUser, addBooking}) {
                 user_id: currentUser.id
             }),
         })
-        .then(res => res.json())
-        .then(book => addBooking(book))
+            .then(res => res.json())
+            .then(book => addBooking(book))
     }
 
     return (
-        <div>
-            <form onSubmit={handleOnSubmit}>
-                <input
-                    onChange={(event) => setStyle(event.target.value)}
-                    value={style}
-                    placeholder="Style"
-                    type="text"
-                    id="style"
-                    name="style" />
-                <input
-                    onChange={(event) => setImgUrl(event.target.value)}
-                    value={img_url}
-                    placeholder="Img Url"
-                    type="text"
-                    id="img_url"
-                    name="img_url" />
-                <input
-                    onChange={(event) => setTime(event.target.value)}
-                    value={time}
-                    placeholder="Time"
-                    type="text"
-                    id="time"
-                    name="time" />
-                <input
-                    onChange={(event) => setDate(event.target.value)}
-                    value={date}
-                    placeholder="Date"
-                    type="text"
-                    id="date"
-                    name="date" />
-                <input
-                    onChange={(event) => setLocation(event.target.value)}
-                    value={location}
-                    placeholder="Location"
-                    type="text"
-                    id="location"
-                    name="location" />
-                <input
-                    onChange={(event) => setDescription(event.target.value)}
-                    value={description}
-                    placeholder="Description"
-                    type="text"
-                    id="description"
-                    name="description" />
-                <button type="submit">Submit</button>
-            </form>
+        <div className="body-app">
+            <div className="form-outsider">
+                <div className="form-container">
+                    <form className="register-form" onSubmit={handleOnSubmit}>
+                        <h5>Book you photo session</h5>
+                        <input
+                            onChange={(event) => setStyle(event.target.value)}
+                            className="form-field"
+                            value={style}
+                            placeholder="Style"
+                            type="text"
+                            id="style"
+                            name="style" />
+                        <input
+                            onChange={(event) => setImgUrl(event.target.value)}
+                            className="form-field"
+                            value={img_url}
+                            placeholder="Img Url"
+                            type="text"
+                            id="img_url"
+                            name="img_url" />
+                        <input
+                            onChange={(event) => setTime(event.target.value)}
+                            className="form-field"
+                            value={time}
+                            placeholder="Time"
+                            type="text"
+                            id="time"
+                            name="time" />
+                        <input
+                            onChange={(event) => setDate(event.target.value)}
+                            className="form-field"
+                            value={date}
+                            placeholder="Date"
+                            type="text"
+                            id="date"
+                            name="date" />
+                        <input
+                            onChange={(event) => setLocation(event.target.value)}
+                            className="form-field"
+                            value={location}
+                            placeholder="Location"
+                            type="text"
+                            id="location"
+                            name="location" />
+                        <textarea
+                            onChange={(event) => setDescription(event.target.value)}
+                            className="form-field"
+                            value={description}
+                            placeholder="Description"
+                            type="text"
+                            id="description"
+                            name="description" />
+                        <Button variant="success" type="submit">Submit</Button>{' '}
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
