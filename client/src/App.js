@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Bookings from './Bookings'
-// import EditForm from './EditForm'
 import LoginForm from './LoginForm'
 import NavigBar from './NavigBar';
 import BookingForm from './BookingForm';
@@ -23,9 +22,9 @@ function App() {
     })
   }, [])
 
-
   function addBooking(booking) {
     setBookings([...bookings, booking])
+
   }
 
   function handleLogoutClick() {
