@@ -24,11 +24,13 @@ function Bookings({ currentUser }) {
             .then(setBookings)
     }, [])
 
+    const renderBookings = bookings.map((book) => <BookingCard editBooking={editBooking} currentUser={currentUser} booking={book} key={book.id} removeBooking={removeBooking} />)
+
     return (
         <div className="App">
             <div>
                 <h1>Bookings</h1>
-                {bookings.map(book => <BookingCard editBooking={editBooking} currentUser={currentUser} booking={book} key={book.id} removeBooking={removeBooking} />)}
+                {renderBookings}
             </div>
         </div>
     )

@@ -33,6 +33,7 @@ function App() {
     })
   }
 
+
   if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser} />
 
   return (

@@ -9,22 +9,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        if @current_user
-            render json: @current_user
-        else
-            render json: {}, status: :unauthorized
-        end
-    end
-
-    def show
         render json: @current_user, status: :ok
     end
-
-    # def create
-    #     user = User.create!(user_params)
-    #     session[:user_id] = user.id
-    #     render json: user, status: :created
-    # end
 
     def create
         user = User.create(user_params)

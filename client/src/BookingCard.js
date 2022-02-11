@@ -21,6 +21,7 @@ function BookingCard({ booking, removeBooking, currentUser, editBooking }) {
     }
 
     return (
+
         <div className="body-booking">
             <div className="card-box">
                 <Card style={{ width: '18rem' }}>

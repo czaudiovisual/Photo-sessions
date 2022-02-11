@@ -52,7 +52,7 @@ function LoginForm({ setCurrentUser }) {
                             onChange={(event) => setPassword(event.target.value)}
                             className="form-field"
                             value={password}
-                            type="text"
+                            type="password"
                             id="password"
                             placeholder="Password"
                         />
@@ -60,7 +60,6 @@ function LoginForm({ setCurrentUser }) {
                     </form>
                     <br />
                     <br />
-
                     <SignupForm setCurrentUser={setCurrentUser} />
                 </div>
             </div>

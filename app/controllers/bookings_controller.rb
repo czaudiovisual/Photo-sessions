@@ -1,9 +1,9 @@
-class BookingsController < ApplicationController
+   class BookingsController < ApplicationController
 
     skip_before_action :authorize
     
     def index
-        bookings = Booking.all
+        bookings = Booking.all.includes(:user)
         render json: bookings, status: :ok
     end
  

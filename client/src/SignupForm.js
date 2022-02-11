@@ -4,10 +4,8 @@ import { Button } from 'react-bootstrap'
 
 function SignupForm({ setCurrentUser }) {
     const [name, setName] = useState("")
-    // const [img_profile, setImgProfile] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    // const [password_confirmation, setPasswordConfirmation] = useState("")
     const [errors, setErrors] = useState("")
 
     const displayError = () => {
@@ -27,7 +25,6 @@ function SignupForm({ setCurrentUser }) {
                 name: name,
                 username: username,
                 password: password,
-                // password_confirmation: password_confirmation,
             }),
         }).then((res) => {
             if (res.ok) {
@@ -77,18 +74,10 @@ function SignupForm({ setCurrentUser }) {
                     className="form-field"
                     value={password}
                     placeholder="Password"
-                    type="text"
+                    type="password"
                     id="password"
                     name="password"
                 />
-                {/* <input
-                    onChange={(event) => setPasswordConfirmation(event.target.value)}
-                    className="form-field"
-                    value={password_confirmation}
-                    type="password_confirmation"
-                    id="password_confirmation"
-                    placeholder="Password Confirmation"
-                /> */}
                 <br />
                 <Button variant="success" type="submit">Sign Up</Button>{' '}
             </form>
