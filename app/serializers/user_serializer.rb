@@ -1,4 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :img_profile, :username, :password_digest
+  attributes :id, :name, :username, :password
+
   has_many :bookings, serializer: BookingSerializer
 end

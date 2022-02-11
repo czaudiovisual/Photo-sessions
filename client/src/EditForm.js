@@ -92,10 +92,10 @@ function EditForm({ currentUser, booking, editBooking, handleEditButtonClick }) 
                     type="text"
                     id="description"
                     name="description" />
-                     <br />
-            <Button variant="success" size="sm" type="submit">Edit</Button>
+                <br />
+                <Button variant="success" size="sm" type="submit">Edit</Button>
             </form>
-           
+
         </div>
     )
 }

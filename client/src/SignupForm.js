@@ -2,12 +2,12 @@ import React, { useState } from "react"
 import { Alert } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
 
-
-
 function SignupForm({ setCurrentUser }) {
     const [name, setName] = useState("")
-    const [img_profile, setImgProfile] = useState("")
+    // const [img_profile, setImgProfile] = useState("")
     const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    // const [password_confirmation, setPasswordConfirmation] = useState("")
     const [errors, setErrors] = useState("")
 
     const displayError = () => {
@@ -18,15 +18,16 @@ function SignupForm({ setCurrentUser }) {
 
     function handleOnSubmit(event) {
         event.preventDefault()
-        fetch("/users", {
+        fetch("/signup", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
             body: JSON.stringify({
                 name: name,
-                img_profile: img_profile,
-                username: username
+                username: username,
+                password: password,
+                // password_confirmation: password_confirmation,
             }),
         }).then((res) => {
             if (res.ok) {
@@ -40,33 +41,55 @@ function SignupForm({ setCurrentUser }) {
     }
 
     return (
-        <div>
-            <h2>Signup</h2>
-            <form onSubmit={handleOnSubmit}>
+        <div className="App">
+            <form className="register-form" onSubmit={handleOnSubmit}>
+                <h5 className="App">Create an account</h5>
+                <h3 className="App">Signup</h3>
                 {errors ?
                     <Alert variant="danger">{errors && displayError()}</Alert> : <Alert variant="danger="></Alert>
                 }
                 <input
                     onChange={(event) => setName(event.target.value)}
+                    className="form-field"
                     value={name}
                     placeholder="Name"
                     type="text"
                     id="name"
                     name="name" />
-                <input
+                {/* <input
                     onChange={(event) => setImgProfile(event.target.value)}
+                    className="form-field"
                     value={img_profile}
                     placeholder="Img Profile"
                     type="text"
                     id="img_profile"
-                    name="img_profile" />
+                    name="img_profile" /> */}
                 <input
                     onChange={(event) => setUsername(event.target.value)}
+                    className="form-field"
                     value={username}
                     placeholder="username@hello.com"
                     type="text"
                     id="username"
                     name="username" />
+                <input
+                    onChange={(event) => setPassword(event.target.value)}
+                    className="form-field"
+                    value={password}
+                    placeholder="Password"
+                    type="text"
+                    id="password"
+                    name="password"
+                />
+                {/* <input
+                    onChange={(event) => setPasswordConfirmation(event.target.value)}
+                    className="form-field"
+                    value={password_confirmation}
+                    type="password_confirmation"
+                    id="password_confirmation"
+                    placeholder="Password Confirmation"
+                /> */}
+                <br />
                 <Button variant="success" type="submit">Sign Up</Button>{' '}
             </form>
         </div>

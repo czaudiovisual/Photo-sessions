@@ -1,6 +1,11 @@
 class User < ApplicationRecord
+    has_secure_password
+    
     has_many :bookings
-    validates_presence_of :name, :img_profile
+
+    validates :name, presence: true
     validates :username, presence: true, uniqueness: true
+    validates :password, presence: true
+
     
 end
