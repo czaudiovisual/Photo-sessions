@@ -5,6 +5,7 @@ import Bookings from './Bookings'
 import LoginForm from './LoginForm'
 import NavigBar from './NavigBar';
 import BookingForm from './BookingForm';
+import { Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -40,7 +41,7 @@ function App() {
     <div className="App">
       <nav>
         <NavigBar />
-        <span>Logged in as {currentUser.username} <button onClick={handleLogoutClick}>Logout</button></span>
+        <span>Logged in as {currentUser.username} <Button variant="danger" size="sm" onClick={handleLogoutClick}>Logout</Button></span>
       </nav>
       <div>
         <Router>

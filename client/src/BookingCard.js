@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Card, Button } from "react-bootstrap"
 import EditForm from './EditForm'
 
-function BookingCard({ booking, removeBooking, currentUser, editBooking }) {
+function BookingCard({ booking, removeBooking, currentUser, editBooking}) {
     const [editBookingForm, setEditBookingForm] = useState(false)
     const [editButton, setEditButton] = useState("Show edit Form")
 
@@ -19,9 +19,8 @@ function BookingCard({ booking, removeBooking, currentUser, editBooking }) {
         setEditBookingForm(!editBookingForm)
         !editBookingForm ? setEditButton("Hide Edit Form") : setEditButton("Show edit Form")
     }
-
+  
     return (
-
         <div className="body-booking">
             <div className="card-box">
                 <Card style={{ width: '18rem' }}>
