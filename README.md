@@ -2,7 +2,12 @@
 
 ## Description
 
-Book a photo session is a simple app that allows you to book a photo session with the style that you want.
+Book a photo session is a simple app that allows you to book photo sessions in the style that you like. You can start using the app by creating an account with basic information. After all the process of signing in, you can create a booking by adding information about: style, date, location, a quick description, and also by uploading a link with a photo reference. Also, you can, access all your bookings on the main page, you would be able to modify them and also delete them.
+
+<img width="1000" alt="Screen Shot 2022-02-14 at 10 57 09 PM" src="https://user-images.githubusercontent.com/79618247/153990654-579748f7-55d0-4105-8f8e-707be58c709b.png">
+
+## Link to video
+https://youtu.be/RhpXGbDOw-M
 
 ## To get started
 
