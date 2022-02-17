@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :users
+  resources :users, only: [:index, :show, :create]
   resources :bookings, except: [:show]
 
   get "/me", to: "users#show"

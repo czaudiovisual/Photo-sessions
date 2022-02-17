@@ -19,9 +19,10 @@ function Bookings({ currentUser }) {
     }
 
     useEffect(() => {
-        fetch("/bookings")
+        fetch(`/users/${currentUser.id}`)
             .then((res) => res.json())
-            .then(setBookings)
+            .then((data) => {
+                setBookings(data.bookings)})
     }, [])
 
     const renderBookings = bookings.map((book) => <BookingCard editBooking={editBooking} currentUser={currentUser} booking={book} key={book.id} removeBooking={removeBooking} />)
