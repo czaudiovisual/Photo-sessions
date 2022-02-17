@@ -6,9 +6,6 @@ Book a photo session is a simple app that allows you to book photo sessions in t
 
 <img width="1000" alt="Screen Shot 2022-02-14 at 10 57 09 PM" src="https://user-images.githubusercontent.com/79618247/153990654-579748f7-55d0-4105-8f8e-707be58c709b.png">
 
-## Link to video
-https://youtu.be/yyr5JTZf4kc
-
 ## To get started
 
 - Download this repository by clicking this link https://github.com/czaudiovisual/photo-sessions
